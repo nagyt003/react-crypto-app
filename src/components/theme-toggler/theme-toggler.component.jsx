@@ -1,6 +1,6 @@
 import { HiSun, HiMoon } from 'react-icons/hi';
 import { Fragment, useContext } from 'react';
-import { ThemeContext } from '../../contexts/theme.context';
+import { ThemeContext } from '../../contexts/theme/theme.context';
 
 const ThemeToggler = () => {
 	const { theme, setTheme } = useContext(ThemeContext);

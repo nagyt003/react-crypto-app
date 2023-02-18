@@ -10,6 +10,14 @@
 	.rounded-div {
 		@apply border border-secondary rounded-2xl shadow-xl bg-primary px-2 max-w-[1140px] w-full mx-auto;
 	}
+
+	.rounded-top-div {
+		@apply border-t border-secondary rounded-tl-2xl rounded-tr-2xl shadow-xl bg-primary px-2 max-w-[1140px] w-full mx-auto;
+	}
+
+	.rounded-bottom-div {
+		@apply border-b border-secondary rounded-bl-2xl rounded-br-2xl shadow-xl bg-primary px-2 max-w-[1140px] w-full mx-auto;
+	}
 }
 
 .dark {

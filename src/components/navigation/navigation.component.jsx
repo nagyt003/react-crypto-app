@@ -5,15 +5,15 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { Fragment } from 'react';
 
 const Navigation = () => {
-	const [toggleNav, setToggleNav] = useState(false);
+	const [isNavOpen, setIsNavOpen] = useState(false);
 
 	const toggleNavHandler = () => {
-		setToggleNav(!toggleNav);
+		setIsNavOpen(!isNavOpen);
 	};
 
 	return (
 		<Fragment>
-			<nav className="rounded-div flex items-center justify-between h-20 font-bold">
+			<nav className="sticky top-0 z-10 rounded-div flex items-center justify-between h-20 font-bold">
 				<Link to="/">
 					<h1 className="text-2xl">
 						<span className="text-accent">Crypto</span>Verse
@@ -43,7 +43,7 @@ const Navigation = () => {
 					onClick={toggleNavHandler}
 					className="block md:hidden cursor-pointer z-10"
 				>
-					{toggleNav ? (
+					{isNavOpen ? (
 						<AiOutlineClose size={25} />
 					) : (
 						<AiOutlineMenu size={25} />
@@ -51,11 +51,9 @@ const Navigation = () => {
 				</div>
 
 				<div
-					className={
-						toggleNav
-							? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[calc(100%-5rem)] bg-primary ease-in duration-300 z-10'
-							: 'fixed left-[-100%]'
-					}
+					className={`md:hidden fixed ${
+						isNavOpen ? 'left-0' : 'left-[-100%]'
+					} top-20 flex flex-col items-center justify-between w-[75%] h-[calc(100%-5rem)] bg-primary ease-in-out duration-300 z-10`}
 				>
 					<ul className="w-full p-4">
 						<li className="border-b py-6">
