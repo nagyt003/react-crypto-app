@@ -11,26 +11,27 @@ const useAxiosFetch = (url, method, payload) => {
 		controllerRef.current.abort();
 	};
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await api.request({
-					data: payload,
-					signal: controllerRef.current.signal,
-					method,
-					url,
-				});
-				console.log(response.data);
-				setData(response.data);
-			} catch (error) {
-				setError(error.message);
-			} finally {
-				setLoading(false);
-			}
-		};
+	const fetchData = async () => {
+		try {
+			const response = await api.request({
+				data: payload,
+				signal: controllerRef.current.signal,
+				method,
+				url,
+			});
 
+			setData(response.data);
+		} catch (error) {
+			setError(error.message);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
 		fetchData();
-	}, []);
+		// eslint-disable-next-line
+	}, [url]);
 
 	return { cancel, data, error, loading };
 };

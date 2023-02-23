@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CoinContext } from '../../contexts/coin/coin.context';
 
 const CoinSearch = () => {
-	const { searchText, setSearchText } = useContext(CoinContext);
+	const { searchField, setSearchField } = useContext(CoinContext);
 
 	return (
 		<div className="rounded-top-div mt-4">
@@ -13,8 +13,8 @@ const CoinSearch = () => {
 						className="w-full bg-primary border border-input px-4 py-2 rounded-2xl shadow-xl"
 						type="text"
 						placeholder="Search a coin"
-						value={searchText}
-						onChange={(e) => setSearchText(e.target.value)}
+						value={searchField}
+						onChange={(e) => setSearchField(e.target.value)}
 					/>
 				</form>
 			</div>

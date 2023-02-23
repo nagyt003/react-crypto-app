@@ -5,31 +5,55 @@ export const CoinContext = createContext(null);
 
 export const CoinProvider = ({ children }) => {
 	const [coins, setCoins] = useState([]);
-	const [searchText, setSearchText] = useState('');
-	const [searchResults, setSearchResults] = useState([]);
+	const [searchField, setSearchField] = useState('');
+	const [filteredCoins, setFilteredCoins] = useState([]);
+	const [trendingCoins, setTrendingCoins] = useState([]);
 
-	const { data, error, loading } = useAxiosFetch(
-		'/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true',
+	const {
+		data: coinsData,
+		error: coinsError,
+		loading: coinsLoading,
+	} = useAxiosFetch(
+		'/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true',
 		'GET',
 		{}
 	);
 
+	const {
+		data: trendingData,
+		error: trendingError,
+		loading: trendingLoading,
+	} = useAxiosFetch('/search/trending', 'GET', {});
+
 	useEffect(() => {
-		setCoins(data);
-	}, [data]);
+		if (coinsData) setCoins(coinsData);
+	}, [coinsData]);
 
 	useEffect(() => {
 		if (coins) {
-			const filteredCoins = coins.filter((coin) =>
-				coin.name.toLowerCase().includes(searchText.toLowerCase())
-			);
-			setSearchResults(filteredCoins);
+			const newFilteredCoins = coins.filter((coin) => {
+				return coin.name.toLowerCase().includes(searchField.toLowerCase());
+			});
+			setFilteredCoins(newFilteredCoins);
 		}
-	}, [coins, searchText]);
+	}, [coins, searchField]);
+
+	useEffect(() => {
+		if (trendingData) setTrendingCoins(trendingData);
+	}, [trendingData]);
 
 	return (
 		<CoinContext.Provider
-			value={{ searchText, setSearchText, searchResults, error, loading }}
+			value={{
+				searchField,
+				setSearchField,
+				filteredCoins,
+				coinsError,
+				coinsLoading,
+				trendingCoins,
+				trendingError,
+				trendingLoading,
+			}}
 		>
 			{children}
 		</CoinContext.Provider>
