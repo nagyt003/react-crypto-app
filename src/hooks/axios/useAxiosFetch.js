@@ -31,7 +31,7 @@ const useAxiosFetch = (url, method, payload) => {
 	useEffect(() => {
 		fetchData();
 		// eslint-disable-next-line
-	}, [url]);
+	}, []);
 
 	return { cancel, data, error, loading };
 };

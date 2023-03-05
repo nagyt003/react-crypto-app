@@ -14,7 +14,7 @@ export const CoinProvider = ({ children }) => {
 		error: coinsError,
 		loading: coinsLoading,
 	} = useAxiosFetch(
-		'/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true',
+		'/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true',
 		'GET',
 		{}
 	);
@@ -40,6 +40,7 @@ export const CoinProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (trendingData) setTrendingCoins(trendingData);
+		// eslint-disable-next-line
 	}, [trendingData]);
 
 	return (

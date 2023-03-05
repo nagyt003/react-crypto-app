@@ -41,6 +41,7 @@ const CoinsTable = () => {
 					</p>
 				</div>
 			)}
+
 			{!coinsLoading && !coinsError && filteredCoins && (
 				<table className="w-full">
 					<thead>
