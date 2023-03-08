@@ -2,13 +2,8 @@
 My objective with building this project was to learn the basics of React. Thanks to it's well-written docs it was a great experience.
 
 #
-![imagination1](https://user-images.githubusercontent.com/67967688/222919403-3154a79b-3e1f-4d62-a32a-0e6737d8c229.PNG)
-![imagination2](https://user-images.githubusercontent.com/67967688/222919409-4c705844-4474-44d3-ab25-3a22f3d72682.PNG)
-
-
-
-
-
+![cryptoverse](https://user-images.githubusercontent.com/67967688/223693709-d6d9c56a-0cc8-4de9-84f8-3cc961a518a2.PNG)
+![cryptoverse1](https://user-images.githubusercontent.com/67967688/223693712-41240783-ccf4-492f-b8bf-0058b3758d08.PNG)
 
 ##  Live Demo
 
