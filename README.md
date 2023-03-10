@@ -15,23 +15,37 @@ My objective with building this project was to learn the basics of React. Thanks
 
 
 ## Features
+- Account management
+- Personal coin watchlist
+- Search trough the top 20 coins
+- Detailed information about the coins (Market Cap, Daily High & Low, Daily Price chamge, etc...)
 
 
  
 ## Technologies used
-- Vite
-- MongoDB
-- Express
-- React
-- Node
-- TailwindCSS
-- Render for deployment
+This project was created using the following technologies.
+
+### Client
+- React JS
+- React-router-dom (To handle routing)
+- TailwindCSS (for User Interface)
+- Axios (to make requests to the backend)
+
+### Server
+- Firebase
+- Firebase Authentication
+
+### Database
+- Firebase Firestore
+
 
 ## What did I learn?
 This project helped me improve my skills in multiple areas.
-- I got more comfortable using the JSX syntax.
-- I got more experience using React.js hooks, but especially the useState and useEffect hooks.
 - Passing states and functions as props to child components.
+- Using Context to avoid prop drilling.
+- I got more experience with Routing in React.js
+- I learnt how to create a custom hook to fetch data from an API.
+- I got comfortable implementing a Firebase Authentication and saving or getting data from Firestore.
 
 ## Credit
 The project was inspired by [Clint](https://www.youtube.com/@codecommerce)
